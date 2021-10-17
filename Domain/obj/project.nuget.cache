@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Ime/BjnmIpBWHZbri8fg03n1FT9nzpK6G5yK+H5J3dPxVPuxD18fRbYeJDhZCzQgD2WJRDWlEgnQaY+nzcqUpQ==",
+  "dgSpecHash": "TRWdOLx5km4DlWl+IuoBYzNESbghAzciuKalFpG+ihhGl+mFVQ892sFBz9Go8LKAOBO7ENihqtf6beGJBOOmMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vartotojas\\Documents\\BIT\\GitHub\\BankingApp\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Vartotojas\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
+    "C:\\Users\\Vartotojas\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
