@@ -1,3 +1,4 @@
+using Domain.Clients.Firebase.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,7 @@ namespace RestAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddFirebaseClient();
             services.AddControllers();
             services.AddSwaggerGen(options =>
             {
