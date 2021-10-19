@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAPI", "RestAPI\RestAPI.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{2578EC90-DA3B-4A66-B2B0-20DDC132B4C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{31A325A3-2C31-4C92-9F24-F3A5945D6526}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{31A325A3-2C31-4C92-9F24-F3A5945D6526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{A480D97A-5978-4827-B308-BFD1FE608C48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{31A325A3-2C31-4C92-9F24-F3A5945D6526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31A325A3-2C31-4C92-9F24-F3A5945D6526}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31A325A3-2C31-4C92-9F24-F3A5945D6526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A480D97A-5978-4827-B308-BFD1FE608C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A480D97A-5978-4827-B308-BFD1FE608C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A480D97A-5978-4827-B308-BFD1FE608C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A480D97A-5978-4827-B308-BFD1FE608C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
