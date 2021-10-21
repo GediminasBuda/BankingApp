@@ -12,7 +12,7 @@ namespace Domain.Services
     public interface ITransactionService
     {
         Task<TransactionResponse> TopUp(TransactionRequest request, string firebaseId);
-        Task<TransactionResponse> Send(TransactionRequest request);
+        Task<SendTransactionResponse> Send(SendTransactionRequest request, string firebaseId);
 
         Task<TransactionResponse> Receive(TransactionRequest request);
 

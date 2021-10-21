@@ -58,8 +58,8 @@ namespace Persistence.Repositories
 
         public Task<int> SaveOrUpdateAsync(TransactionWriteModel model)
         {
-            var sql = @$"INSERT INTO {TableName} (Id, UserId, AccountId, TransactionType, Amount, Comment, DateCreated) 
-                        VALUES (@Id, @UserId, @AccountId, @TransactionType, @Amount, @Comment, @DateCreated)
+            var sql = @$"INSERT INTO {TableName} (Id, UserId, AccountId, ReceiverSenderAccountId, TransactionType, Amount, Comment, DateCreated) 
+                        VALUES (@Id, @UserId, @AccountId, @ReceiverSenderAccountId, @TransactionType, @Amount, @Comment, @DateCreated)
                         ON DUPLICATE KEY UPDATE Amount = @Amount, Comment = @Comment";
 
             return _sqlClient.ExecuteAsync(sql, new
@@ -67,6 +67,7 @@ namespace Persistence.Repositories
                 model.Id,
                 model.UserId,
                 model.AccountId,
+                model.ReceiverSenderAccountId,
                 TransactionType = model.TransactionType.ToString(),
                 model.Amount,
                 model.Comment,

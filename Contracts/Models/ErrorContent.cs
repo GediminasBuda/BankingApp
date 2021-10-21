@@ -9,11 +9,12 @@ namespace Contracts.Models
 {
     public class ErrorContent
     {
-        [JsonPropertyName("code")]
-        public int Code { get; set; }
 
         [JsonPropertyName("message")]
         public string Message { get; set; }
+
+        [JsonPropertyName("code")]
+        public int Code { get; set; }
 
     }
 }

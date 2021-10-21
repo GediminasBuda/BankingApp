@@ -94,5 +94,13 @@ namespace RestAPI.Controllers
                 DateCreated = account.DateCreated
             });
         }
+        [HttpDelete]
+        [Authorize]
+        [Route("{id}")]
+        public async Task<ActionResult> DeleteAccount(Guid id)
+        {
+            await _accountRepository.DeleteAsync(id);
+            return NoContent();
+        }
     }
 }

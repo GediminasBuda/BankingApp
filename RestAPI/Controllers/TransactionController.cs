@@ -37,6 +37,22 @@ namespace RestAPI.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpPost]
+        [Route("send")]
+        public async Task<ActionResult<SendTransactionResponse>> Transfer(SendTransactionRequest request, string firebaseId)
+        {
+            firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            try
+            {
+                var response = await _transactionService.Send(request, firebaseId);
+
+                return response;
+            }
+            catch (BadHttpRequestException e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
     }
 }
