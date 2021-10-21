@@ -15,7 +15,7 @@ namespace Persistence.Repositories
             _sqlClient = sqlClient;
         }
 
-        public Task<UserReadModel> GetByIdAsync(string firebaseId)
+        public Task<UserReadModel> GetAsync(string firebaseId)
         {
             var sql = $"SELECT * FROM {TableName} WHERE FirebaseId = @FirebaseId";
             return _sqlClient.QuerySingleOrDefaultAsync<UserReadModel>(sql, new

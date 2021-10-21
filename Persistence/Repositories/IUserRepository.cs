@@ -10,7 +10,7 @@ namespace Persistence.Repositories
 {
     public interface IUserRepository
     {
-        Task<UserReadModel> GetByIdAsync(string firebaseId);
+        Task<UserReadModel> GetAsync(string firebaseId);
         Task<int> SaveAsync(UserWriteModel model);
     }
 }

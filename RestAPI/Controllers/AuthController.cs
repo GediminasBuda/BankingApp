@@ -17,14 +17,14 @@ namespace RestAPI.Controllers
     [Route("auth")]
     public class AuthController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IFirebaseClient _firebaseClient;
+        /*private readonly IUserRepository _userRepository;
+        private readonly IFirebaseClient _firebaseClient;*/
         private readonly IAuthService _authService;
 
         public AuthController(IUserRepository userRepository, IFirebaseClient firebaseClient, IAuthService authService)
         {
-            _userRepository = userRepository;
-            _firebaseClient = firebaseClient;
+           /* _userRepository = userRepository;
+            _firebaseClient = firebaseClient;*/
             _authService = authService;
         }
 

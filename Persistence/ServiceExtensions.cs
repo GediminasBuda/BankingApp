@@ -27,7 +27,10 @@ namespace Persistence
         {
             return services
 
-                .AddSingleton<IUserRepository, UserRepository>();
+                .AddSingleton<IUserRepository, UserRepository>()
+                .AddSingleton<IAccountRepository, AccountRepository>()
+                .AddSingleton<ITransactionRepository, TransactionRepository>();
+            
                 
         }
 

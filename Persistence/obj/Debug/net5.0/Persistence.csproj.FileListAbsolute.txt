@@ -10,3 +10,6 @@ C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\Persistence\obj\Debug\net5.0
 C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\Persistence\obj\Debug\net5.0\Persistence.dll
 C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\Persistence\obj\Debug\net5.0\ref\Persistence.dll
 C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\Persistence\obj\Debug\net5.0\Persistence.pdb
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\Persistence\bin\Debug\net5.0\Contracts.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\Persistence\bin\Debug\net5.0\Contracts.pdb
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\Persistence\obj\Debug\net5.0\Persistence.csproj.CopyComplete

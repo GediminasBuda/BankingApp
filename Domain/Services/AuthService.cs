@@ -50,7 +50,7 @@ namespace Domain.Services
         {
             var firebaseSignInResponse = await _firebaseClient.SignInAsync(request.Email, request.Password);
 
-            var user = await _userRepository.GetByIdAsync(firebaseSignInResponse.FirebaseId);
+            var user = await _userRepository.GetAsync(firebaseSignInResponse.FirebaseId);
 
             return new SignInResponse
             {
