@@ -1,0 +1,12 @@
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\bin\Debug\net5.0\TestHelper.deps.json
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\bin\Debug\net5.0\TestHelper.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\bin\Debug\net5.0\ref\TestHelper.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\bin\Debug\net5.0\TestHelper.pdb
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\TestHelper.csproj.AssemblyReference.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\TestHelper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\TestHelper.AssemblyInfoInputs.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\TestHelper.AssemblyInfo.cs
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\TestHelper.csproj.CoreCompileInputs.cache
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\TestHelper.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\ref\TestHelper.dll
+C:\Users\Vartotojas\Documents\BIT\GitHub\BankingApp\TestHelper\obj\Debug\net5.0\TestHelper.pdb

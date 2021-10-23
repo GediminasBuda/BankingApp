@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Domain.Clients.Firebase.Models;
 using Contracts.Models;
+using System.Collections.Generic;
+using Domain.Exceptions;
 
 namespace Domain.Services
 {
@@ -30,14 +32,26 @@ namespace Domain.Services
             _accountRepository = accountRepository;
             _userRepository = userRepository;
         }
-
+        public async Task<IEnumerable<TransactionsResponse>> GetAllAsync(Guid userId, string firebaseId)
+        {
+            var user = await _userRepository.GetAsync(firebaseId);
+            var transactions = await _transactionRepository.GetAllAsync(user.UserId);
+            return transactions.Select(item => new TransactionsResponse
+            {
+                AccountId = item.AccountId,
+                TransactionType = item.TransactionType,
+                Amount = item.Amount,
+                Comment = item.Comment,
+                DateCreated = item.DateCreated
+            });
+        }
         public async Task<TransactionResponse> TopUp(TransactionRequest request, string firebaseId)
         {
             var user = await _userRepository.GetAsync(firebaseId);
             var account = await _accountRepository.GetAsync(request.AccountId);
             if (account.Balance + request.Amount < 0)
             {
-                throw new Exception($"Insufficient funds in the account!");
+                throw new UserException($"Insufficient funds in the account!", 404);
             }
             var transactionWriteModels = new TransactionWriteModel
             {
@@ -86,11 +100,11 @@ namespace Domain.Services
 
             if(account.Balance < request.Amount)
             {
-                throw new Exception($"Insufficient funds in the account!");
+                throw new UserException($"Insufficient funds in the account!", 404);
             }
             if (account.Currency != receiverAccount.Currency)
             {
-                throw new Exception($"Receiver's account's currency does not match!");
+                throw new UserException($"Receiver's account's currency does not match!", 404);
             }
             var senderTransactionWriteModels = new TransactionWriteModel
             {
@@ -150,5 +164,7 @@ namespace Domain.Services
                 DateCreated = senderTransactionWriteModels.DateCreated
             };
         }
+
+       
     }
 }

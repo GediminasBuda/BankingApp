@@ -1,6 +1,7 @@
 ﻿using Contracts.Models.RequestModels;
 using Contracts.Models.ResponseModels;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,6 +23,7 @@ namespace RestAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("topUp")]
         public async Task<ActionResult<TransactionResponse>> TopUpAccount(TransactionRequest request, string firebaseId)
         {
@@ -38,6 +40,7 @@ namespace RestAPI.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
         [Route("send")]
         public async Task<ActionResult<SendTransactionResponse>> Transfer(SendTransactionRequest request, string firebaseId)
         {
@@ -53,6 +56,21 @@ namespace RestAPI.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet]
+        [Authorize]
+        public async Task<IEnumerable<TransactionsResponse>> GetAllTransactions(Guid userId, string firebaseId)
+        {
+            firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            try
+            {
+                var response = await _transactionService.GetAllAsync(userId, firebaseId);
 
+                return response;
+            }
+            catch (BadHttpRequestException e)
+            {
+                return (IEnumerable<TransactionsResponse>)BadRequest(e.Message);
+            }
+        }
     }
 }

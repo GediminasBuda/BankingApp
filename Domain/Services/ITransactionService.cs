@@ -1,6 +1,7 @@
 ﻿using Contracts.Models.RequestModels;
 using Contracts.Models.ResponseModels;
 using Domain.Clients.Firebase.Models;
+using Persistence.Models.ReadModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Domain.Services
         Task<SendTransactionResponse> Send(SendTransactionRequest request, string firebaseId);
 
         Task<TransactionResponse> Receive(TransactionRequest request);
+        Task<IEnumerable<TransactionsResponse>> GetAllAsync(Guid userId, string firebaseId);
 
     }
 }
