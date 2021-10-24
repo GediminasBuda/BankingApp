@@ -22,7 +22,7 @@ namespace Persistence.Repositories
         {
             var sql = $"SELECT * FROM {TableName} WHERE UserId = @UserId";
 
-            return _sqlClient.QueryAsync<AccountReadModel>(sql);
+            return _sqlClient.QueryAsync<AccountReadModel>(sql, new { UserId = userId });
         }
       
         public Task<AccountReadModel> GetAsync(Guid id)

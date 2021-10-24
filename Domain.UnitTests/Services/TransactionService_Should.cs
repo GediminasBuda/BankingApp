@@ -18,7 +18,7 @@ namespace Domain.UnitTests.Services
     {
         [Theory]
         [AutoMoqData]
-        public async Task GetAllAsync_ReturnsTransactionsResponse(
+        public async Task GetAllAsync_GivenUserIdandFirebaseId_ReturnsTransactionsResponse(
             [Frozen] Mock<IUserRepository> userRepositoryMock,
             [Frozen] Mock<ITransactionRepository> transactionRepositoryMock,
             IEnumerable<TransactionReadModel> transactionReadModels,
@@ -52,6 +52,20 @@ namespace Domain.UnitTests.Services
             transactionRepositoryMock
                 .Verify(transactionRepository => transactionRepository
                 .GetAllAsync(It.IsAny<Guid>()), Times.Once);
+        }
+        [Theory]
+        [AutoMoqData]
+        public async Task TopUp_GivenUserIdandFirebaseId_ReturnsTransactionsResponse(
+            [Frozen] Mock<IUserRepository> userRepositoryMock,
+            [Frozen] Mock<ITransactionRepository> transactionRepositoryMock,
+            IEnumerable<TransactionReadModel> transactionReadModels,
+            Guid userId,
+            string firebaseId,
+            UserReadModel userReadModel,
+            TransactionReadModel transactionReadModel,
+            TransactionService sut)
+        {
+
         }
     }
 }

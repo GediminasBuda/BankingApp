@@ -32,6 +32,24 @@ namespace RestAPI.Controllers
 
         [HttpGet]
         [Authorize]
+        public async Task<IEnumerable<AccountsResponse>> GetAllAsync()
+        {
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var user = await _userRepository.GetAsync(firebaseId);
+            var accounts = await _accountRepository.GetAllAsync(user.UserId);
+
+            return accounts.Select(item => new AccountsResponse
+            {
+                Id = item.Id,
+                UserId = user.UserId,
+                Balance = item.Balance,
+                Bankname = item.Bankname,
+                Currency = item.Currency,
+                DateCreated = item.DateCreated
+            });
+        }
+        [HttpGet]
+        [Authorize]
         [Route("{id}")]
         public async Task<ActionResult<AccountBalanceResponse>> GetBalance(Guid id)
         {

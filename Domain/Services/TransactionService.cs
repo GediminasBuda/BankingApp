@@ -32,7 +32,7 @@ namespace Domain.Services
             _accountRepository = accountRepository;
             _userRepository = userRepository;
         }
-        public async Task<IEnumerable<TransactionsResponse>> GetAllAsync(Guid userId, string firebaseId)
+        public async Task<IEnumerable<TransactionsResponse>> GetAllAsync(string firebaseId)
         {
             var user = await _userRepository.GetAsync(firebaseId);
             var transactions = await _transactionRepository.GetAllAsync(user.UserId);
@@ -45,7 +45,7 @@ namespace Domain.Services
                 DateCreated = item.DateCreated
             });
         }
-        public async Task<TransactionResponse> TopUp(TransactionRequest request, string firebaseId)
+        public async Task<TransactionResponse> TopUpAsync(TransactionRequest request, string firebaseId)
         {
             var user = await _userRepository.GetAsync(firebaseId);
             var account = await _accountRepository.GetAsync(request.AccountId);
@@ -58,7 +58,7 @@ namespace Domain.Services
                 Id = Guid.NewGuid(),
                 UserId = user.UserId,
                 AccountId = request.AccountId,
-                TransactionType = request.TransactionType,
+                TransactionType = TransactionType.TopUp,
                 Amount = request.Amount,
                 Comment = request.Comment,
                 DateCreated = DateTime.Now
@@ -92,7 +92,7 @@ namespace Domain.Services
             throw new NotImplementedException();
         }
 
-        public async Task<SendTransactionResponse> Send(SendTransactionRequest request, string firebaseId)
+        public async Task<SendTransactionResponse> SendAsync(SendTransactionRequest request, string firebaseId)
         {
             var user = await _userRepository.GetAsync(firebaseId);
             var account = await _accountRepository.GetAsync(request.AccountId);

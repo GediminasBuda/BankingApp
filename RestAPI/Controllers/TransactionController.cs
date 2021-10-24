@@ -25,12 +25,12 @@ namespace RestAPI.Controllers
         [HttpPost]
         [Authorize]
         [Route("topUp")]
-        public async Task<ActionResult<TransactionResponse>> TopUpAccount(TransactionRequest request, string firebaseId)
+        public async Task<ActionResult<TransactionResponse>> TopUpAccount(TransactionRequest request)
         {
-            firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
             try
             {
-                var response = await _transactionService.TopUp(request, firebaseId);
+                var response = await _transactionService.TopUpAsync(request, firebaseId);
 
                 return response;
             }
@@ -42,12 +42,12 @@ namespace RestAPI.Controllers
         [HttpPost]
         [Authorize]
         [Route("send")]
-        public async Task<ActionResult<SendTransactionResponse>> Transfer(SendTransactionRequest request, string firebaseId)
+        public async Task<ActionResult<SendTransactionResponse>> Transfer(SendTransactionRequest request)
         {
-            firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
             try
             {
-                var response = await _transactionService.Send(request, firebaseId);
+                var response = await _transactionService.SendAsync(request, firebaseId);
 
                 return response;
             }
@@ -58,12 +58,12 @@ namespace RestAPI.Controllers
         }
         [HttpGet]
         [Authorize]
-        public async Task<IEnumerable<TransactionsResponse>> GetAllTransactions(Guid userId, string firebaseId)
+        public async Task<IEnumerable<TransactionsResponse>> GetAllTransactions()
         {
-            firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
+            var firebaseId = HttpContext.User.Claims.SingleOrDefault(claim => claim.Type == "user_id").Value;
             try
             {
-                var response = await _transactionService.GetAllAsync(userId, firebaseId);
+                var response = await _transactionService.GetAllAsync(firebaseId);
 
                 return response;
             }

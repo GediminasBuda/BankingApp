@@ -12,11 +12,11 @@ namespace Domain.Services
 {
     public interface ITransactionService
     {
-        Task<TransactionResponse> TopUp(TransactionRequest request, string firebaseId);
-        Task<SendTransactionResponse> Send(SendTransactionRequest request, string firebaseId);
+        Task<TransactionResponse> TopUpAsync(TransactionRequest request, string firebaseId);
+        Task<SendTransactionResponse> SendAsync(SendTransactionRequest request, string firebaseId);
 
         Task<TransactionResponse> Receive(TransactionRequest request);
-        Task<IEnumerable<TransactionsResponse>> GetAllAsync(Guid userId, string firebaseId);
+        Task<IEnumerable<TransactionsResponse>> GetAllAsync(string firebaseId);
 
     }
 }
