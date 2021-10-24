@@ -40,7 +40,7 @@ namespace Domain.UnitTests.Services
                 .ReturnsAsync(transactionReadModels);
 
             // Act
-            var result = await sut.GetAllAsync(userId, firebaseId);
+            var result = await sut.GetAllAsync(firebaseId);
 
             //Assert
             result.Should().BeEquivalentTo(transactionReadModels, option => option
